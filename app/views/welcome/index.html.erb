@@ -1,0 +1,13 @@
+<% if @categories.any? %>
+
+  <ul class="thumb">
+  <% @categories.each do |category| %>
+    <li>
+        <%= link_to category_projects_path(category) do %>
+          <%= image_tag category.fon.url %>
+        <% end %>
+    </li>
+  <% end %>
+  </ul>
+
+<% end %>

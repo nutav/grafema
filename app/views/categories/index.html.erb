@@ -1,0 +1,40 @@
+<h3>Категории</h3>
+
+<%= link_to new_category_path, class: 'button small info' do %>
+  <i class="fi-plus"></i> Создать новую категорию
+<% end %>
+
+<% if @categories.any? %>
+  <table style="width: 100%;">
+      <thead>
+      <tr>
+          <th>#</th>
+          <th>Категория</th>
+          <th>Количество проектов</th>
+          <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+            <td><%= category.id %></td>
+            <td>
+                <p><%= category.name %></p>
+                <p><%= category.description %><p>
+            </td>
+            <td><%= category.projects.length %></td>
+            <td>
+                <%= link_to edit_category_path(category), class: 'button normal', title: 'Редактировать' do %>
+                  <%= fa_icon 'wrench' %>
+                <% end %>
+                <%= link_to category_path(category), method: :delete, class: 'button danger', title: 'Удалить', data: {confirm: 'Вы уверены?'} do %>
+                  <%= fa_icon 'remove' %>
+                <% end %>
+            </td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+<% else %>
+  <p class="information">Пока не было создано ни одной категории</p>
+<% end %>
