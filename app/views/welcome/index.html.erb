@@ -3,8 +3,9 @@
   <ul class="thumb">
   <% @categories.each do |category| %>
     <li>
-        <%= link_to category_projects_path(category) do %>
+        <%= link_to works_category_path(category) do %>
           <%= image_tag category.fon.url %>
+          <div class="mask"> <div class="details"><%= category.name %></div></div>
         <% end %>
     </li>
   <% end %>

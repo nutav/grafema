@@ -60,6 +60,12 @@
     color: #444444;
     font-size: 1.6em;
     line-height: 30px;
+
+    small {
+      font-weight: normal;
+      font-size: 0.7em;
+      color: #222;
+    }
   }
 }
 
@@ -76,6 +82,11 @@
 
   &:hover {
     background: #444444;
+  }
+
+  &.tiny {
+    padding: 2px 5px;
+    font-size: 0.9em;
   }
 
   &.secondary {
@@ -115,7 +126,7 @@ input[type="text"] {
   height: 30px;
   width: 100%;
   font-size: 1.2em;
-
+  padding-left: 7px;
 }
 
 textarea {
@@ -126,6 +137,7 @@ textarea {
   line-height: 20px;
   width: 100%;
   font-size: 1.2em;
+  padding-left: 7px;
 }
 
 .form {
@@ -169,7 +181,8 @@ i {
 
 .thumb {
   list-style: none;
-  margin: 20px 0 10px 0;
+  width: 100%;
+  margin: 20px auto 10px auto;
 
   li {
     mask-image: asset-url('mask.png');
@@ -179,12 +192,98 @@ i {
     float: left;
     width: 280px;
     height: 280px;
-    margin-right: 20px;
+    margin: 30px 30px 0 auto;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+    }
 
     img {
       height: 280px;
+      position: relative;
+      left: -5px;
     }
 
+    .border {
+      height: 280px;
+      width: 280px;
+      border: 5px solid #444444;
+      border-radius: 280px;
+    }
+
+    .mask {
+      position: relative;
+      background: rgba(32,32,32,0.7);
+      width: 280px;
+      height: 280px;
+      top: -280px;
+
+      &:hover {
+        background: rgba(32,32,32,0);
+
+        .details {
+          top: 200px;
+        }
+      }
+    }
+
+    .details {
+      background: rgba(39,33,35,0.98);
+      padding: 15px 0;
+      position: relative;
+      top: 280px;
+      left: 0;
+      text-align: center;
+      transition: top 0.2s ease-in;
+      -webkit-transition: top 0.1s ease-in;
+      -moz-transition: top 0.1s ease-in;
+      -o-transition: top 0.1s ease-in;
+      width: 280px;
+      height: 68px;
+      text-decoration: none;
+      color: #EFEFEF;
+    }
+  }
+}
+
+#explanation {
+  width: 29%;
+  float: left;
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #fff;
+  padding: 40px 20px;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+#project {
+  width: 60%;
+  float: left;
+}
+
+.fotorama__wrap {
+  margin: 0 auto;
+}
+
+.link {
+  color: #E22138;
+  text-decoration: none;
+
+  &:hover {
+    color: #444;
+  }
+}
+
+.text-right {
+  text-align: right;
+  padding: 15px;
+
+  .link {
+    position: relative;
+    bottom: -10px;
+    margin-right: 5%;
   }
 }
 

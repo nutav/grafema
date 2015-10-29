@@ -22,7 +22,13 @@
                 <p><%= category.name %></p>
                 <p><%= category.description %><p>
             </td>
-            <td><%= category.projects.length %></td>
+            <td>
+                <%= category.projects.length %>
+                <br><br>
+                <%= link_to category_projects_path(category), class: 'button tiny' do %>
+                  <%= fa_icon 'plus' %> Добавить
+                <% end %>
+            </td>
             <td>
                 <%= link_to edit_category_path(category), class: 'button normal', title: 'Редактировать' do %>
                   <%= fa_icon 'wrench' %>

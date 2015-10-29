@@ -1,0 +1,7 @@
+<h3>
+    Редактирование проекта "<%= @project.name %>"
+    <small class="nowrap"><%= @category.name %></small>
+</h3>
+
+<%= render partial: 'form',
+           locals: { url: category_project_path(@category, @project) } %>

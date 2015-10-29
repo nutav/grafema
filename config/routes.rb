@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :categories do
     resources :projects
+    get 'works', to: 'categories#works', on: :member
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

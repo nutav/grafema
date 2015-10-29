@@ -32,8 +32,13 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def destroy
+  def works
+    @projects = @category.projects
+  end
 
+  def destroy
+    @category.destroy!
+    redirect_to categories_path, notice: 'Категория была удалена'
   end
 
   def resource_params

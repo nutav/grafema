@@ -1,0 +1,38 @@
+<h3>Проекты <small><%= @category.name %></small></h3>
+
+<%= link_to new_category_project_path(@category), class: 'button small info' do %>
+  <i class="fi-plus"></i> Создать новый проект
+<% end %>
+
+<% if @projects.any? %>
+  <table style="width: 100%;">
+      <thead>
+      <tr>
+          <th>#</th>
+          <th>Проект</th>
+          <th>Изображение</th>
+          <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+            <td><%= project.id %></td>
+            <td><%= project.name %>
+            </td>
+            <td><%= image_tag project.picture.url(:thumb) %></td>
+            <td>
+                <%= link_to edit_category_project_path(@category, project), class: 'button normal', title: 'Редактировать' do %>
+                  <%= fa_icon 'wrench' %>
+                <% end %>
+                <%= link_to category_project_path(@category, project), method: :delete, class: 'button danger', title: 'Удалить', data: {confirm: 'Вы уверены?'} do %>
+                  <%= fa_icon 'remove' %>
+                <% end %>
+            </td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+<% else %>
+  <p class="information">Пока не было создано ни одного проекта в категории "<%= @category.name %>"</p>
+<% end %>

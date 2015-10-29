@@ -1,0 +1,29 @@
+<h3>Проекты <small><%= @category.name %></small></h3>
+
+<div id="project">
+  <div class="fotorama"
+       data-nav="thumbs" data-transition="crossfade">
+      <% @projects.each do |project| %>
+        <a href="<%= project.picture.url %>"><%= image_tag project.picture.url(:thumb) %></a>
+      <% end %>
+  </div>
+</div>
+
+<div id="explanation">
+  <% @projects.each do |project| %>
+    <div class="explain" data-value="<%= project.picture.url %>" style="display: none;">
+      <%= project.name %>
+      <p><%= project.description %></p>
+    </div>
+  <% end %>
+</div>
+
+<p class="text-right"><%= link_to 'Посмотреть другие работы', root_path, class: 'link' %></p>
+
+<script>
+  $('.fotorama').on('fotorama:show', function (e, fotorama) {
+    $('.explain').hide();
+    $('.explain[data-value="' + fotorama.activeFrame.img + '"]').show();
+
+  })
+</script>
